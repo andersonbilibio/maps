@@ -111,7 +111,14 @@ g1 = ax.gridlines(crs=ccrs.PlateCarree(),
 # Plote a temperatura negativa no mapa
 plt.imshow(temperatura_negativa,  cmap='BuPu_r', origin='lower', 
            transform = ccrs.PlateCarree(), vmin=limite_negativo, vmax= 0)
-
+ #X, Y = np.meshgrid(df.columns, df.index)
+  #  Z = df.values
+#    img = ax.pcolormesh(
+   #     X, Y, Z, 
+  #      vmin = 0, 
+     #   vmax = 5, 
+     #   cmap = 'rainbow'
+     #   ) 
 # Adicione uma barra de cores
 plt.colorbar(shrink=0.7, label='Temperatura (°C)')
 
