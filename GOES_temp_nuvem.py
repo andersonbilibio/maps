@@ -85,7 +85,7 @@ fig, ax = plt.subplots(figsize=(10, 10), subplot_kw=dict(projection=ccrs.Mercato
 ax.set_extent([-75, -30, -35, 7], ccrs.PlateCarree())
 
 # Adiciona um fundo com mapa de satélite usando a biblioteca contextily (opcional)
-ax.stock_img()
+# ax.stock_img()
 
 
 # Adiciona características do mapa, como a costa do Brasil e os países
@@ -109,8 +109,12 @@ g1 = ax.gridlines(crs=ccrs.PlateCarree(),
 
 ###============================================================================
 # Plote a temperatura negativa no mapa
-plt.imshow(temperatura_negativa,  cmap='BuPu_r', origin='lower', 
-           transform = ccrs.PlateCarree(), vmin=limite_negativo, vmax= 0)
+# plt.imshow(temperatura_negativa,  cmap='BuPu_r', origin='lower', 
+#            transform = ccrs.PlateCarree(), vmin=limite_negativo, vmax= 0)
+
+X, Y = np.meshgrid(dlon, dlat)
+Z = temperatura_negativa
+plt.pcolormesh(X, Y, Z, vmin = 0, vmax = -100, cmap = 'rainbow') 
 
 # Adicione uma barra de cores
 plt.colorbar(shrink=0.7, label='Temperatura (°C)')
